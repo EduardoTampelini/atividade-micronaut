@@ -5,7 +5,7 @@ import java.util.*
 
 class MemoryPessoaRepository : PessoaRepository {
 
-    private val database: MutableSet<Pessoa> = mutableSetOf()
+    private val database: MutableList<Pessoa> = mutableListOf()
 
     init {
         database.add(Pessoa(
@@ -42,15 +42,13 @@ class MemoryPessoaRepository : PessoaRepository {
     }
 
     override fun updateById(id: UUID, pessoa: Pessoa) {
+        for ((index, value) in database.withIndex()) {
+            if(value.hasId(id)){
+                database[index]=pessoa
+            }
 
-       for (pessoa2 in database){
+        }
 
-           if (pessoa2.hasId(id)) {
-               database.remove(pessoa2)
-               database.add(pessoa)
-
-           }
-       }
     }
 
 
