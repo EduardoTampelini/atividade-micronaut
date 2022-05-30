@@ -10,10 +10,9 @@ class Pessoa constructor(
     val telefone: String,
     val email: String
 ) {
-    var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
 
     var cpf: String? = null
-    var nascimento: LocalDate? = LocalDate.parse("30-06-2000",formatter);
+    var nascimento: LocalDate? = LocalDate.of(2002,10,0)
     var endereco: String? = null
 
     init {
