@@ -5,14 +5,14 @@ import java.time.format.DateTimeFormatter
 import java.util.UUID
 
 class Pessoa constructor(
-    val id: UUID,
+    val id: UUID = UUID.randomUUID(),
     val nome: String,
     val telefone: String,
     val email: String
 ) {
 
     var cpf: String? = null
-    var nascimento: LocalDate? = LocalDate.of(2002,10,0)
+    var nascimento: LocalDate? = LocalDate.of(2002,9,16)
     var endereco: String? = null
 
     init {
@@ -32,7 +32,7 @@ class Pessoa constructor(
     }
 
     fun hasNascimentoLessThan(data: LocalDate): Boolean {
-        return nascimento != null && nascimento!!.isBefore(data)
+        return nascimento == null || nascimento!!.isBefore(data)
     }
 
 }
