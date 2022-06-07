@@ -1,14 +1,15 @@
 package br.edu.facec.sorteio.pessoa.entity
 
+import br.edu.facec.infra.NoArg
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.UUID
 
+@NoArg
 class Pessoa constructor(
-    val id: UUID = UUID.randomUUID(),
-    val nome: String,
-    val telefone: String,
-    val email: String
+    var id: UUID = UUID.randomUUID(),
+    var nome: String,
+    var telefone: String,
+    var email: String
 ) {
 
     var cpf: String? = null
